@@ -1,0 +1,26 @@
+spring.profiles.active: appengine
+
+server:
+  port: ${PORT:8090}
+  servlet.context-path: /
+
+spring.jpa.hibernate.ddl-auto: none
+spring.datasource.initialization-mode: always
+spring.jpa.show-sql: true
+
+logging.level.com.zaxxer.hikari.pool.HikariPool: TRACE
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:32700
+    username: root
+    password: 123456
+    hikari:
+      poolName: keek_proc
+      autoCommit: false
+      connectionTimeout: 10000 # 10 segundos
+      validationTimeout: 8000 # 8 segundos
+      maxLifetime: 1500000 # 25 minutes
+      leakDetectionThreshold: 60000 # 1 minutes
+      maximumPoolSize: 5
